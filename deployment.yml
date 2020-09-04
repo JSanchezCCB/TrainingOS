@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cecoban
+spec:
+  selector:
+    matchLabels:
+      app: cecoban-api-net
+  replicas: 1 
+  template: 
+    metadata:
+      labels:
+        app: cecoban-api-net
+    spec:
+      containers:
+      - name: cecoban-api-net
+        image: mcr.microsoft.com/dotnet/core/aspnet:2.1-stretch-slim
+        ports:
+        - containerPort: 80
